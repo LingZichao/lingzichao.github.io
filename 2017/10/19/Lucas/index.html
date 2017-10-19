@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Lucas｜Lingandrew&#39;s blog
+        Lingandrew&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://lingzichao.github.io/2017/10/18/Lucas/">
+    <link rel="canonical" href="http://lingzichao.github.io/2017/10/19/Lucas/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -137,18 +137,15 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Lucas</h1>
+                    <h1></h1>
                     
                     <span class="meta">
                          作者 LingAndrew
                         <span>
-                          日期 2017-10-18
+                          日期 2017-10-19
                          </span>
                     </span>
                     <div class="tags text-center">
-                        
-                        <a class="tag" href="/tags/#OI"
-                           title="OI">OI</a>
                         
                     </div>
                 </div>
@@ -157,7 +154,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Lucas
+            
         </span>
     </div>
 </header>
@@ -168,9 +165,11 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="Lucas定理"><a href="#Lucas定理" class="headerlink" title="Lucas定理"></a>Lucas定理</h1><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+                <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-<p>Lucas定理是用来求C（n,m）mod p 且p为质数时的方法。在noip范围内这基本是求该类问题最优的方法，不需考虑到适用范围的问题。</p>
+<hr>
+<p>title: Lucas<br>date: 2017-10-18 22:57:36</p>
+<h2 id="tags-OI"><a href="#tags-OI" class="headerlink" title="tags: OI"></a>tags: OI</h2><h1 id="Lucas定理"><a href="#Lucas定理" class="headerlink" title="Lucas定理"></a>Lucas定理</h1><p>Lucas定理是用来求C（n,m）mod p 且p为质数时的方法。在noip范围内这基本是求该类问题最优的方法，不需考虑到适用范围的问题。</p>
 <h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><p>&emsp;&emsp;1.非递归：<br>$$\binom{n}{m} = \prod_{i=0}^{k}\binom{n_i}{m_i}(mod\;p)$$<br>&emsp;&emsp;这是将n ， m视为p进制然后进行构造的。</p>
 <p>&emsp;&emsp;2.递归<br>$$\binom{n}{m} = \binom{n/p}{m/p}\binom{n%p}{m%p}(mod\;p)$$<br>&emsp;&emsp;这时候需要使用递归的方式，不断对$\binom{n/p}{m/p}$进行求值即可获得答案。递归的终点是p=0；</p>
 <h3 id="不正经的证明"><a href="#不正经的证明" class="headerlink" title="不正经的证明"></a>不正经的证明</h3><blockquote>
@@ -213,7 +212,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lucas定理"><span class="toc-text">Lucas定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#公式"><span class="toc-text">公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不正经的证明"><span class="toc-text">不正经的证明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code："><span class="toc-text">Code：</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags-OI"><span class="toc-text">tags: OI</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lucas定理"><span class="toc-text">Lucas定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#公式"><span class="toc-text">公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不正经的证明"><span class="toc-text">不正经的证明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code："><span class="toc-text">Code：</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
@@ -234,9 +233,6 @@
                         <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
-                        
-                        <a class="tag" href="/tags/#OI"
-                           title="OI">OI</a>
                         
                     </div>
                 </section>
