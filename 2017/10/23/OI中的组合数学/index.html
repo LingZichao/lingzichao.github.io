@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="LingAndrew"><title>OI中的组合数学 · LingAndrew</title><meta name="description" content="OI中的组合数学
+
+一些不仅对初赛还对复赛有用的排列组合问题（不算太全QWQ）
+一.加法原理与乘法原理1.加法原理:假设完成一个工程可以有n类办法，a[i](1&amp;lt;=i&amp;lt;=n) 代表第i类方法的数目。
+那么完成这件事共有  S = a[[1]+a[2]+...+a[n]   种不同的方法。"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">LingAndrew</a></h3><div class="description"><p>欢迎来到LingAndrew的杂货铺</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>OI中的组合数学</a></h3></div><div class="post-content"><h1 id="OI中的组合数学"><a href="#OI中的组合数学" class="headerlink" title="OI中的组合数学"></a>OI中的组合数学</h1><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<p>一些不仅对初赛还对复赛有用的排列组合问题（不算太全QWQ）</p>
+<h3 id="一-加法原理与乘法原理"><a href="#一-加法原理与乘法原理" class="headerlink" title="一.加法原理与乘法原理"></a>一.加法原理与乘法原理</h3><h5 id="1-加法原理"><a href="#1-加法原理" class="headerlink" title="1.加法原理:"></a>1.加法原理:</h5><p>假设完成一个工程可以有<code>n</code>类办法，<code>a[i]</code>(1&lt;=i&lt;=n) 代表第i类方法的数目。</p>
+<p>那么完成这件事共有  <code>S = a[[1]+a[2]+...+a[n]</code>   种不同的方法。 </p>
+<h5 id="2-乘法原理"><a href="#2-乘法原理" class="headerlink" title="2.乘法原理:"></a>2.乘法原理:</h5><p>完成一个工程需要分<code>n</code>个步骤，<code>a[i]</code>(1&lt;=i&lt;=n) 代表第i个步骤的不同方法数目。<br>那么完成这件事共有 <code>S = a[[1]*a[2]*...*a[n]</code>   种不同的方法。 </p>
+<h5 id="3-两个原理的区别"><a href="#3-两个原理的区别" class="headerlink" title="3.两个原理的区别:"></a>3.两个原理的区别:</h5><blockquote>
+<p>一个与分类有关 ，一个与分步有关；</p>
+</blockquote>
+<p>加法原理是“分类完成”，乘法原理是“分步完成”。</p>
+<h3 id="二-排列与组合的概念与计算公式"><a href="#二-排列与组合的概念与计算公式" class="headerlink" title="二.排列与组合的概念与计算公式"></a>二.排列与组合的概念与计算公式</h3><h5 id="1．排列-（有序）"><a href="#1．排列-（有序）" class="headerlink" title="1．排列 （有序）"></a>1．排列 （有序）</h5><p><strong>全排列：</strong></p>
+<p>n个人全部来排队，队长为n。第一个位置可以选n个，第二    位置可以选n-1个，以此类推得：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">A(n,n)=n(n-1)(n-2)……3*2*1= n! (规定0!=1).</div></pre></td></tr></table></figure></p>
+<p><strong>部分排列：</strong></p>
+<p><code>n</code>个人选<code>m</code>个来排队<code>(m&lt;=n)</code>。第一个位置可以选n个，第二位置可以选<code>n-1</code>个，以此类推，第<code>m</code>个（最后一个）可以选<code>(n-m+1)</code>个，得：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">A(n,m)=n(n-1)(n-2)……(n-m+1)= n! / (n-m)! (规定0!=1).</div></pre></td></tr></table></figure></p>
+<h5 id="2．组合（无序）"><a href="#2．组合（无序）" class="headerlink" title="2．组合（无序）"></a>2．组合（无序）</h5><p>  <code>n</code>个人<code>m</code>(m&lt;=n)个出来，不排队，不在乎顺序就是<code>C(n,m)</code>。</p>
+<p>   如果在乎排列那么就是<code>A(n,m)</code>，如果不在乎那么就要除掉重复，那么重复了多少？同样选出的来的<code>m</code>个人，他们还要“全排”得到<code>A(n,m)</code>，所以得：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">C(n,m) * m!  =  P(n,m)	</div><div class="line">C(n,m)=  P(n,m) / m!=n! / ( (n-m)! * m! )</div></pre></td></tr></table></figure></p>
+<p>组合数的性质1:<code>C(n,m)= C(n-m , m) (m &lt;= n);</code></p>
+<p>组合数的性质2:<code>C(n,m)= C(n-1,m)+C(n-1,m-1);</code>（组合数的递推）</p>
+<h4 id="3-排列组合的基本方法"><a href="#3-排列组合的基本方法" class="headerlink" title="3.排列组合的基本方法"></a>3.排列组合的基本方法</h4><blockquote>
+<p>链接<a href="http://blog.sina.com.cn/s/blog_4d4a4c640100czkz.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4d4a4c640100czkz.html</a></p>
+</blockquote>
+<p><strong>（1）捆绑法</strong></p>
+<p>   若某几个元素要求<em>必须相邻</em> 时，先考虑整体，将相邻的元素视作一个整体参与排序，然后在考虑整体内部的顺序。</p>
+<p>   Tips:捆绑的整体内部若无顺序要求，也要使用C(m,n);</p>
+<p><strong>（2）插空法</strong></p>
+<p>   若某几个元素要求<em>不相邻</em> 时，先将其他元素排好，再将指定的不相邻的元素插入已排好的元素的间隙或两端</p>
+<p><strong>（3）插板法</strong></p>
+<p>在解决若干相同元素分组时，要求每组至少一个元素时，采用将比所需组数少1的板插入元素之间形成分组的策略</p>
+<h4 id="4-其他排列组合数列"><a href="#4-其他排列组合数列" class="headerlink" title="4.其他排列组合数列"></a>4.其他排列组合数列</h4><h5 id="（1）-Fibonacci"><a href="#（1）-Fibonacci" class="headerlink" title="（1）.Fibonacci"></a>（1）.Fibonacci</h5><p><strong>公式</strong></p>
+<script type="math/tex; mode=display">F_i = F_{i-1} + F_{i-2}</script><p>&emsp;&emsp;边界 : F[1] = F[0] = 1;</p>
+<hr>
+<h5 id="（2-Catalan数"><a href="#（2-Catalan数" class="headerlink" title="（2).Catalan数"></a>（2).Catalan数</h5><p><strong>公式1</strong>:</p>
+<script type="math/tex; mode=display">F_N = \sum_{i=0}^{N-1}F_i*F_{n-i-1}</script><p><strong>公式2</strong>：</p>
+<script type="math/tex; mode=display">F_N=\frac{C_{2N}^{N}}{N+1}</script><p><strong>公式3</strong>(一阶递推式)：</p>
+<script type="math/tex; mode=display">F_N = \frac{4*N-2}{N+1}F_{N-1}</script><p>对于公式2，我们有一个有趣的证明方法————折线法。</p>
+<blockquote>
+<p>链接：<a href="http://blog.sina.com.cn/s/blog_6917f47301010cno.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_6917f47301010cno.html</a></p>
+</blockquote>
+<p>1.首先我们假设有两种操作<code>A</code>、<code>B</code>,在进行k次B操作前必须进行至少k次A操作。这样我们再假设一个人在原点，A操作会向45°上方向行走一个单位，B操作则向45°下方向行走一个单位。这样在第一个前提下，这个人的路径必须在x轴上方，且终点为（2N，0）（进行了N次A、B操作）；这种情况下的方案数即为我们所需的答案。<br>（图）</p>
+<p>2.根据常识：合法的方案数 = 总方案数 - 不合法的方案数。<br>这里若是无不越过x轴的限制，也就是只需要终点为(2N，0)的时候，总方案数为$C_{2N}^{N}$,即2N次操作了正好N次A，N次B的方案数。接下来就需要求出不合法的方案数。</p>
+<p>3.在什么情况下不合法呢?显然是越过x轴的情况，在这个时候，折线必定与Y=-1有一个交点。我们将交点以后的部分沿Y=-1对折（即交换A，B操作，总操作数不变，是合法的），这样，折线终点就变为了(2N，-2)，也就是说操作A与操作B的次数不再相等，而是B操作比A操作多两次，即A：N-1 ， B：N+1。这样，不合法的情况就可以表示为$C_{2N}^{N-1}$或$C_{2N}^{N+1}$。<br>（图）</p>
+<p>4.这样，我们就能得到答案了：</p>
+<script type="math/tex; mode=display">C_{2N}^{N}-C_{2N}^{N-1} = \frac{C_{2N}^{N}}{n+1}</script><p>这就是我们要求的Catalan数。</p>
+<p><strong>应用</strong>：</p>
+<p>1.N个节点的二叉树的不同形态</p>
+<p>2.N个元素按1-N的顺序进栈，不同的出栈顺序数。</p>
+<p>3.N对括号的正确匹配数目</p>
+<p>4.对于在n位的2进制中，有m个0，其余为1的catalan数为：C（n,m）-C(n,m-1)</p>
+<hr>
+<h5 id="（3）圆排列："><a href="#（3）圆排列：" class="headerlink" title="（3）圆排列："></a>（3）圆排列：</h5><p>例如n个人全部来围成一圈为Q(n,n)，其中已经排好的一圈，从不同位置断开，又变成不同的队列。所以：</p>
+<script type="math/tex; mode=display">Q_N^N*N = A_N^N</script><p>所以全圆排就是:</p>
+<script type="math/tex; mode=display">Q_N^N = \frac{A_N^N}{N} = (N-1)!</script><p>由此可知，部分圆排:</p>
+<script type="math/tex; mode=display">Q_N^R = \frac{P_N^R}{R} = \frac{N!}{R*(N-R)!}</script><hr>
+<h5 id="4-第一类Stirling数"><a href="#4-第一类Stirling数" class="headerlink" title="(4)第一类Stirling数"></a>(4)第一类Stirling数</h5><p>第一类Stirling数表示表示将 n 个不同元素构成m个圆排列的数目。它又可以分为无符号stirling和有符号stirling数，这里暂不做讨论。</p>
+<blockquote>
+<p>参考链接：<a href="http://blog.csdn.net/doyouseeman/article/details/50876786" target="_blank" rel="external">http://blog.csdn.net/doyouseeman/article/details/50876786</a></p>
+</blockquote>
+<p>例如我们要让p个人围着K个圆桌而坐，要求各圆桌非空，那么放案数就是第一类Stirling数。</p>
+<p>1.显然S(p,p)＝1(p≥0)，S(p,0)＝0(p≥1) ，也就是说让p个人分到p个桌子只有一种方案，p个人分到0张桌子是没有方案的。</p>
+<p>2.分类讨论一下。</p>
+<p> 存在只有一个人做一张桌子的情况。那么情况数就是：</p>
+<script type="math/tex; mode=display">s_{p-1}^{k-1}</script><p> 除此之外，每张桌子至少两个人。这样的话我们考虑将第一个人进行“捆绑”。首先将p-1个人安排好，之后我们将第一个人固定的安排在这p-1的人身边，相当于将这两个人捆在一起，进行分析，这样就是$s_{p-1}^{k}$,考虑到每个人都可以进行捆绑。所以要乘(p-1)。</p>
+<p><strong>公式1</strong>：</p>
+<script type="math/tex; mode=display">s_{p}^{k}=s_{p-1}^{k-1} + (p-1)*s_{p-1}^{k}</script><p><strong>另一个概念</strong></p>
+<p>对于排列数$P_N^p$,它的公式为：</p>
+<script type="math/tex; mode=display">P_n^p=n(n-1)(n-2)...(n-p+1)</script><p>实际上我们将它展开，就会有:</p>
+<script type="math/tex; mode=display">s_p^pn^p-s_p^{p-1}n_{p-1}+...+s_{p}^{p-k}n^{p-k}-...s_p^0n^0</script><p>这才是第一类斯特林数S的定义，它就是排列数公式的展开式的系数。</p>
+<p><strong>公式2</strong>：</p>
+<script type="math/tex; mode=display">\sum_{p=0}^p(-1)^{p-k}s_p^kn^k</script><p><strong>应用</strong>：<br>可以求自然数幂和（待补全）。</p>
+<hr>
+<h5 id="（5-第二类Stirling数"><a href="#（5-第二类Stirling数" class="headerlink" title="（5)第二类Stirling数"></a>（5)第二类Stirling数</h5><p>第二类Stirling数是集合的一个拆分，表示将n个不同的元素拆分成m个集合的方案数。它与第一类的区别为集合是不考虑次序的，但圆排列是有序的。</p>
+<p>类比第一类，我们很容易想到第二类斯特林树的形式。</p>
+<p>1.若有一个集合只有一个元素，那么方案数就是</p>
+<script type="math/tex; mode=display">S_{i-1}^{j-1}</script><p>2.若每个集合至少两个元素，同时考虑”捆绑”，那么方案数就是</p>
+<script type="math/tex; mode=display">K*S_{p-1}^k</script><p>所以第二类Stirling数就是<br><strong>公式：</strong></p>
+<script type="math/tex; mode=display">S_{p}^k = K*S_{p-1}^k + S_{p-1}^{k-1}</script><p>边界：$S_p^p = 1\;\; and\;\; S_p^0 = 0$</p>
+<hr>
+<h5 id="（6）Bell数"><a href="#（6）Bell数" class="headerlink" title="（6）Bell数"></a>（6）Bell数</h5><p>第n个Bell数表示集合{1,2,3,…,n}的划分方案数。<br>每一个Bell数都是第二类Stirling数的和。<br><strong>公式</strong></p>
+<script type="math/tex; mode=display">B_n = \sum_{k-1}^nS_n^k</script><p>边界：$B[0] = 1;$</p>
+<p>（先坟了。。。）</p>
+<hr>
+<pre><code>时间：2017年10月23日19点04分
+</code></pre></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-10-23</span><i class="fa fa-tag"></i><a href="/tags/OI-Math/" title="-OI -Math" class="tag">-OI -Math </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://lingzichao.github.io/2017/10/23/OI中的组合数学/,LingAndrew,OI中的组合数学,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2017/10/23/Exchange-Root/" title="Exchange_Root" class="btn">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
