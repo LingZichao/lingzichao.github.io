@@ -8,7 +8,7 @@ Lucas定理是用来求C（n,m）mod p 且p为质数时的方法。在noip范围
 <h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><p>&emsp;&emsp;1.非递归：</p>
 <script type="math/tex; mode=display">{n\choose{m} } =\prod_{i=0}^{k} { n_i \choose{m_i} }(mod\;p)</script><p>&emsp;&emsp;这是将n ， m视为p进制然后进行构造的。</p>
 <p>&emsp;&emsp;2.递归</p>
-<script type="math/tex; mode=display">{ n\choose{m} } = { {n/p} \choose{m/p} } { { n\%p } \choose{ m\%p} }(mod\;p)</script><p>&emsp;&emsp;这时候需要使用递归的方式，不断对 $ {n/p \choose{m/p} } $ 进行求值即可获得答案。递归的终点是p=0；</p>
+<script type="math/tex; mode=display">{ n\choose{m} } = { {n/p} \choose{m/p} } { { n\%p } \choose{ m\%p} }(mod\;p)</script><p>&emsp;&emsp;这时候需要使用递归的方式，不断对 $ { {n/p} \choose{m/p} } $ 进行求值即可获得答案。递归的终点是p=0；</p>
 <h3 id="不正经的证明"><a href="#不正经的证明" class="headerlink" title="不正经的证明"></a>不正经的证明</h3><blockquote>
 <p>链接:<a href="https://baike.baidu.com/item/lucas/4326261?fr=aladdin" target="_blank" rel="external">https://baike.baidu.com/item/lucas/4326261?fr=aladdin</a><br>其实就是复述一下百科对于递归式的证明（逃Σ(っ °Д °;)っ</p>
 </blockquote>
