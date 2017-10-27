@@ -1,1 +1,274 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="LingAndrew"><title>矩阵设计与运算 · LingAndrew</title><meta name="description" content=""><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">LingAndrew</a></h3><div class="description"><p>欢迎来到LingAndrew的杂货铺</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>矩阵设计与运算</a></h3></div><div class="post-content"></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-10-28</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://lingzichao.github.io/2017/10/28/矩阵设计与运算/,LingAndrew,矩阵设计与运算,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2017/10/28/模板-最小环/" title="[模板]最小环" class="btn">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="LingAndrew"><title>矩阵设计与运算 · LingAndrew</title><meta name="description" content="矩阵设计与运算抽了点时间再一次学习矩阵，不得不说矩阵的玄妙令人惊叹，它对于递推加速可谓立下汗马功劳。矩阵仍十分具有挑战性，但不能忘记：矩阵的目的在于将递推的下个状态与当前状态铺路搭桥，再复杂的矩阵仍是建立在递推之上。
+
+State 1矩阵的运算有多种，但矩阵乘法由于其性质在递推里可以被广泛运用。
+
+"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">LingAndrew</a></h3><div class="description"><p>欢迎来到LingAndrew的杂货铺</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>矩阵设计与运算</a></h3></div><div class="post-content"><p><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script></p>
+<h1 id="矩阵设计与运算"><a href="#矩阵设计与运算" class="headerlink" title="矩阵设计与运算"></a>矩阵设计与运算</h1><p>抽了点时间再一次学习矩阵，不得不说矩阵的玄妙令人惊叹，它对于递推加速可谓立下汗马功劳。矩阵仍十分具有挑战性，但不能忘记：<strong>矩阵的目的在于将递推的下个状态与当前状态铺路搭桥，再复杂的矩阵仍是建立在递推之上。</strong></p>
+<hr>
+<h3 id="State-1"><a href="#State-1" class="headerlink" title="State 1"></a>State 1</h3><p>矩阵的运算有多种，但矩阵乘法由于其性质在递推里可以被广泛运用。</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+ a1 & b1 & c1 \\
+ a2 & b2 & c2 
+\end{matrix}
+\right]
+×
+\left[
+\begin{matrix}
+ d1 & e1  \\
+ d2 & e2  \\
+ d3 & e3
+\end{matrix}
+\right]
+ =</script><script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+ (a1*d1+b1*d2+c1*d3) & (a1*e1+b1*e2+c1*e3) \\
+ (a2*d1+b2*d2+c2*d3) & (a2*e1+b2*e2+c2*e3)
+\end{matrix}
+\right]</script><p>可以看出来，相乘后的矩阵的行和列是相等的，都是相称前的两个矩阵共同的行长/列宽 ， 而对于新矩阵的每一个值，它所在的行和列就决定了它的值是由原矩阵的那一列，或者哪一行对应相称并求和得到的。这就是矩乘运算的基本。</p>
+<p><strong>Code</strong><br><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Matrix</span> &#123;</span></div><div class="line">	<span class="keyword">long</span> <span class="keyword">long</span> num[MAXN][MAXN];</div><div class="line">	<span class="keyword">int</span> size1, size2;</div><div class="line"></div><div class="line">	Matrix <span class="keyword">operator</span> * (<span class="keyword">const</span> Matrix &amp;another) <span class="keyword">const</span> &#123;</div><div class="line">		Matrix tmp;</div><div class="line">		tmp.size1 = size1, tmp.size2 = another.size2;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= size1; i++)</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= another.size2; j++)</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= another.size1; k++)</div><div class="line">					tmp.num[i][j] += num[i][k] * another.num[k][j];</div><div class="line">		<span class="keyword">return</span> tmp;</div><div class="line">	&#125;</div><div class="line">&#125; a, b, ans;</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="State-2"><a href="#State-2" class="headerlink" title="State 2"></a>State 2</h3><p>我们学习矩乘本身就是为了优化递推。</p>
+<p>先来领悟最简单的Fibonacci数列，它的递推式非常基本:</p>
+<script type="math/tex; mode=display">F_i = F_{i-1} + F_{i-2}(i >= 2)</script><p>边界 <code>F[0] = 1 , F[1] = 1</code> ;</p>
+<p>基本递推，但如果是这样的呢?<a href="http://codevs.cn/problem/1732/" target="_blank" rel="external">CodeVS  1732</a></p>
+<p>这个$10^{14}$的数据显然不能使用普通的递推来解决。所以我们就使用矩阵来优化。</p>
+<p>如开头所讲，<strong>矩阵的目的在于将递推的下个状态与当前状态铺路搭桥，再复杂的矩阵仍是建立在递推之上。</strong></p>
+<p>在Fibonacci数列里，当前状态——也就是我们已知的条件，是$F_{i-1}$与$F_{i-2}$，而下一个我们想要的状态便是$F_{i}$。分析到这里，唯一剩下的就是这个矩阵“桥”，我们可以称之为<strong>“矩阵转移式”</strong>。</p>
+<hr>
+<h3 id="State-3"><a href="#State-3" class="headerlink" title="State 3"></a>State 3</h3><p>相信许多读者都已经在其他Blog里知道了Fibonacci数列的<strong>“矩阵转移式”</strong>：</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+ 1 & 1 \\
+ 1 & 0
+\end{matrix}
+\right]
+^n</script><p>当初始式乘以这个乘方式就可以得到想要的状态，但为什么偏偏是这样构造的呢?矩阵转移式又该如何去求呢？</p>
+<p>这里我给大家推荐一个<strong>“K矩阵构造法”</strong>：</p>
+<blockquote>
+<p>链接：<a href="https://tieba.baidu.com/p/4193025805?red_tag=2604489504" target="_blank" rel="external">https://tieba.baidu.com/p/4193025805?red_tag=2604489504</a></p>
+</blockquote>
+<p>仍然以Fibonacci数列为例<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">1.K指的是当前递推到当前状态所需要的已知状态数。</div><div class="line">  Fibonacci数列的K值显然是2。</div><div class="line">  第一步就要以已知状态构造一个1*k的初始矩阵</div></pre></td></tr></table></figure></p>
+<p> 所以可以构造出：</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+ F_{i-1} & F_{i-2} 
+\end{matrix}
+\right]</script><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">2.第二步构造一个K*K的矩阵转移式，其值先依次设出。</div><div class="line">  再按照矩乘规则与上式相称。</div></pre></td></tr></table></figure>
+<p>这样就是：</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+ F_{i-1} & F_{i-2} 
+\end{matrix}
+\right]
+×
+\left[
+\begin{matrix}
+ an & bn \\
+ cn & dn
+\end{matrix}
+\right]</script><p>运算之后可以得到:</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+ (an*F_{i-1}+cn*F_{i-2}) & (bn*F_{i-1} + dn*F_{i-2}) 
+\end{matrix}
+\right]</script> <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">3.第三步，根据递推关系式推出下一个状态，</div><div class="line"> 并从得到的式子中解出所设未知量。</div></pre></td></tr></table></figure>
+<p> 显然，对于Fibonacci数列，它的下一个状态是</p>
+<script type="math/tex; mode=display">
+ \left[
+\begin{matrix}
+ F_{i} & F_{i-1} 
+\end{matrix}
+\right]</script><p> 观察易得，那么当an = 1 ，cn = 1时，第一个式子就变成了</p>
+<script type="math/tex; mode=display">1*F_{i-1} + 1*F_{i-2} = F_i</script><p> 当bn = 1 ， dn = 0时，第二个式子就变成了</p>
+<script type="math/tex; mode=display">1*F_{i-1} + 0*F_{i-2} = F_{i-1}</script><p> 这就是我们需要的下个个状态，所以我们就可以得到矩阵转移式了：</p>
+<script type="math/tex; mode=display">
+ \left[
+\begin{matrix}
+ 1 & 1 \\
+ 1 & 0
+\end{matrix}
+\right]</script><p>乘几个矩阵转移式，就能得到接下来几位的数列值。所以考虑到边界，就是：</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+ F_1 & F_0 
+\end{matrix}
+\right]
+×
+\left[
+\begin{matrix}
+ 1 & 1 \\
+ 1 & 0
+\end{matrix}
+\right]
+^n
+=
+\left[
+\begin{matrix}
+F_n & F_{n-1}
+\end{matrix}
+\right]</script><p>这个方法大概就是这么多了。</p>
+<p>我们可以再看一道例题。</p>
+<p><strong>坐标系（coordinate）</strong></p>
+<p><strong>【题目描述】</strong></p>
+<p>从前有个平面直角坐标系。<br>你每次可以向上、向左或向右走，但不能经过重复的点。<br>求出你从坐标原点出发，走 n 步有多少种不同的方案。<br>答案对 109 + 7 取模。</p>
+<p><strong>【输入格式】 </strong></p>
+<p>从文件 coordinate.in 中读入数据。 </p>
+<p>第一行一个整数 n，表示需要走的步数。</p>
+<p><strong>【输出格式】</strong></p>
+<p>输出到文件 coordinate.out 中。<br>第一行，一个整数，表示答案。</p>
+<p><strong>【样例 1 输入】</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">2</div></pre></td></tr></table></figure></p>
+<p><strong>【样例 1 输出】</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">7</div></pre></td></tr></table></figure></p>
+<p><strong>【样例 1 解释】</strong><br>从 (0,0) 出发走 2 步，共有 7 种方案：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(0,0) → (0,1) → (0,2)</div><div class="line">(0,0) → (0,1) → (1,1) </div><div class="line">(0,0) → (0,1) → (−1,1) </div><div class="line">(0,0) → (1,0) → (2,0) </div><div class="line">(0,0) → (1,0) → (1,1) </div><div class="line">(0,0) → (−1,0)→ (−2,0) </div><div class="line">(0,0) → (−1,0)→ (−1,1)</div></pre></td></tr></table></figure></p>
+<p><strong>【样例 2 输入】</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">3</div></pre></td></tr></table></figure></p>
+<p><strong>【样例 2 输出】</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">17</div></pre></td></tr></table></figure></p>
+<p><strong>【子任务】</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">对于 20% 的数据，n≤10； </div><div class="line">对于 40% 的数据，n≤100； </div><div class="line">对于 60% 的数据，n≤1000； </div><div class="line">对于 80% 的数据，n≤10^6； </div><div class="line">对于 100% 的数据，n≤10^9。</div></pre></td></tr></table></figure></p>
+<hr>
+<p><strong><em>【解】</em></strong></p>
+<p>我们令小$f[i,0..2]$表示在第i个步骤，0—&gt;向上的方案数目，1—&gt;向左的方案数目，2—&gt;向右的方案数目。因为我们在以行中不能既向左走几步，又向右走几步，所以我们有</p>
+<script type="math/tex; mode=display">f[i][0] = f[i-1][0] + f[i-1][1] + f[i-1][2]</script><script type="math/tex; mode=display">f[i][1] = f[i-1][0] + f[i-1][1]</script><script type="math/tex; mode=display">f[i][2] = f[i-1][0] + f[i-1][2]</script><p>我们令$F[i]$为第i步骤的总方案数，所以我们就能得到：</p>
+<script type="math/tex; mode=display">F[i] = f[i][0] + f[i][1] + f[i][2] =</script><script type="math/tex; mode=display">(f[i-1][0] + f[i-1][1] + f[i-1][2]) +</script><script type="math/tex; mode=display">(f[i-1][0] + f[i-1][1] ) +</script><script type="math/tex; mode=display">(f[i-1][0] + f[i-1][2])</script><p>化简得到：</p>
+<script type="math/tex; mode=display">
+F[i] = 3×f[i-1][0] + 2×f[i-1][1] + 2×f[i-1][2]</script><script type="math/tex; mode=display">
+=2×F[i-1] + f[i-1][0]</script><p>我们发现到：</p>
+<script type="math/tex; mode=display">
+F[i] = f[i+1][0]</script><p>所以就能得到递推式：</p>
+<script type="math/tex; mode=display">
+F[i] = 2×F[i-1] + F[i-2] (i >= 0)</script><p>考虑到数据范围，我们仍要使用矩乘优化，下面是求矩阵转移式：</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+F_{i-1} & F_{i-2}
+\end{matrix}
+\right]
+×
+\left[
+\begin{matrix}
+an & bn \\
+cn & dn 
+\end{matrix}
+\right]
+=
+\left[
+\begin{matrix}
+F_{i} & F_{i-1}
+\end{matrix}
+\right]</script><script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+（an×F_{i-1}+cn×F_{i-2}) & (bn×F_{i-1}+dn×F_{i-2})
+\end{matrix}
+\right]
+=</script><script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+F_{i} & F_{i-1}
+\end{matrix}
+\right]</script><p>注意递推式是有系数的，所以我们要转移的话必须有系数计算。</p>
+<script type="math/tex; mode=display">
+\therefore 
+an = 2 , cn=1 ,bn = 1,dn = 0</script><script type="math/tex; mode=display">
+\therefore
+\left[
+\begin{matrix}
+F_{1}(3) & F_{0}(1)
+\end{matrix}
+\right]
+×
+\left[
+\begin{matrix}
+2 & 1 \\
+1 & 0 
+\end{matrix}
+\right]
+^n 
+=
+\left[
+\begin{matrix}
+F_{n} & F_{n-1}
+\end{matrix}
+\right]</script><p><strong>Code:</strong> (BY _ %%%yqy)</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 1000000007 </span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Mat</span>&#123;</span></div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> a[<span class="number">2</span>][<span class="number">2</span>];</div><div class="line">    Mat(<span class="keyword">int</span> i = <span class="number">0</span>, <span class="keyword">int</span> j = <span class="number">0</span>, <span class="keyword">int</span> k = <span class="number">0</span>, <span class="keyword">int</span> l = <span class="number">0</span>) &#123;</div><div class="line">        a[<span class="number">0</span>][<span class="number">0</span>] = i, a[<span class="number">0</span>][<span class="number">1</span>] = j, a[<span class="number">1</span>][<span class="number">0</span>] = k, a[<span class="number">1</span>][<span class="number">1</span>] = l;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">inline</span> Mat <span class="keyword">friend</span> <span class="keyword">operator</span>*(<span class="keyword">const</span> Mat &amp;a, <span class="keyword">const</span> Mat &amp;b) &#123;</div><div class="line">        Mat ret;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++)</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++)</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">2</span>; k++) </div><div class="line">                    ret.a[i][j] = (ret.a[i][j] + a.a[i][k] * b.a[k][j] % mod) % mod;</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="function">Mat <span class="title">pow</span><span class="params">(Mat a, <span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (x == <span class="number">1</span>) <span class="keyword">return</span> a;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(x &amp; <span class="number">1</span>) <span class="keyword">return</span> <span class="built_in">pow</span>(a, x - <span class="number">1</span>) * a;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">pow</span>(a * a, x &gt;&gt; <span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">//freopen("coordinate.in", "r", stdin);</span></div><div class="line">    <span class="comment">//freopen("coordinate.out", "w", stdout);</span></div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</div><div class="line">        <span class="built_in">puts</span>(<span class="string">"0"</span>);</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</div><div class="line">        <span class="built_in">puts</span>(<span class="string">"3"</span>);</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    Mat chu(1, 1, 0, 0), zhuan(1, 2, 1, 1);</div><div class="line">    Mat ans = chu * <span class="built_in">pow</span>(zhuan, n - <span class="number">1</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, (ans.a[<span class="number">0</span>][<span class="number">0</span>] * <span class="number">2</span> + ans.a[<span class="number">0</span>][<span class="number">1</span>]) % mod);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="State-4"><a href="#State-4" class="headerlink" title="State 4"></a>State 4</h3><p><a href="https://www.luogu.org/problem/show?pid=1192" target="_blank" rel="external">Luogu 1192</a></p>
+<p>Σ(っ °Д °;)っ<br>emmmm?水题？在原题的数据范围里确实没啥难度，但我们考虑更大的数据范围，比如到1e15，这样妥妥的矩乘优化了。</p>
+<p>但我们注意到这个递推有一些小小不同</p>
+<script type="math/tex; mode=display">
+F[i] = \sum_{j=i-k}^iF[j]（i >= k）</script><p>不能O(n)的递推，而需要一个求和的过程，这样我们就要使用到另一个矩阵转移式的设计技巧。</p>
+<p>1.有一个矩阵有着十分有趣的性质：</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+1 & 0 & 0 \cdots 0\\
+0 & 1 & 0 \cdots 0\\
+0 & 0 & 1 \cdots 0\\
+\vdots & &\ddots\\
+0 & 0 & 0 \cdots 1
+\end{matrix}
+\right]</script><p>任何一个符合矩乘规则的矩阵与它相乘，仍是它本身，相当于实数<code>1</code>的存在，要不就称之为<strong>单位矩阵</strong>。</p>
+<p>2.递推的初状态为</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+F_i & F_{i-1} & F_{i-2} \cdots F_{i-k} 
+\end{matrix}
+\right]</script><p>要求的下一个状态式：</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+F_{i+1} & F_{i} & F_{i-1} \cdots F_{i-k+1}
+\end{matrix}
+\right]</script><p>容易观察到 $F_{i-k+1} $到$F_{i}$项都没有变化，$F_{i-k}$相当于乘了0而被消去，这样我们把单位矩阵的所有<code>1</code>向下平移1格</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+0 & 0 & 0 \cdots 0\\
+1 & 0 & 0 \cdots 0\\
+0 & 1 & 0 \cdots 0\\
+\vdots & &\ddots\\
+0 & 0 & 1 \cdots 0
+\end{matrix}
+\right]</script><p>而新来的$F_{i+1}$等于$F_{i-k+1}$到$F_{i}$的总加和，所以我们再将单位矩阵修改为</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{matrix}
+0 & 0 & 0 \cdots 1\\
+1 & 0 & 0 \cdots 1\\
+0 & 1 & 0 \cdots 1\\
+\vdots & &\ddots\\
+0 & 0 & 1 \cdots 1
+\end{matrix}
+\right]</script><p>根据这个矩阵转移式进行矩阵乘法递推，就完全符合要求了（试着写一写体会一下）。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">这种修改单位矩阵的方法更具灵活性，但也有一些固定的套路暗含其中。</div><div class="line">·单位矩阵修改法·或许有一些经验性积累的要求，</div><div class="line">笔者也暂且无法提出一些定论或方法，还需读者用心体会和练习。</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="（State-5）"><a href="#（State-5）" class="headerlink" title="（State 5）"></a>（State 5）</h3><p>Boss战的感觉?<br>事实上<strong>State5</strong>并不是正文内容，因为这部分无法保证正确性。</p>
+<p>（本题出自公元2017年郑州《NOI导刊》国庆集训Day1T3）</p>
+<p><strong>篮球训练（traning）</strong></p>
+<p><strong>【题目描述】</strong></p>
+<p>CJG是一个喜欢打篮球的学生，他身体强壮、球技高超，成为了学校的篮球队长。</p>
+<p>为了锻炼腿部肌肉的力量，CJG每天都在做跳台阶的锻炼。从地面（视为第0级台阶）开始，他会在 每一步往上跳若干级台阶，直到跳上第n级台阶后，他才会停下来休息。但甶于一些特殊的喜好， CJG只会选择跳<strong>特定级数</strong>的台阶，比如有<code>i</code>天，因为2、3、5是质数，而更高的级数又超出自己的弹 跳力，他每一步都只会往上跳2级台阶、3级台阶或5级台阶，而不会跳1级台阶、4级台阶或更多级的台阶。</p>
+<p>一段为期<code>T</code>天的跳台阶训练开始了，CJG很好奇：第<code>i</code>天我要跳<code>ni</code>级台阶，我有多少种不同的方法 可以跳到第ni级台阶呢？但他没空去算，于是他想到了你。<br>“你是个很厉害的学霸，所以我会把我跳的台阶数都用<code>k</code>进制告诉你。”，CJG说，”两种跳台阶的方 法不同，当且仅当跳的步数不同，或某一步跳的阶数不同。好好给我算哦，不然嘿嘿嘿…”<br>你并不怕他，因此你打算只告诉他不同的方法数除以64123的余数。”自己去脑补前面的数字吧！”你 愤愤地想。 </p>
+<p><strong>【输入格式】</strong></p>
+<p>输入文件的第一行包含3个十进制正整数T,k,m表示CjG训练的天数、CjG告诉你的台阶数的进 制数以及CjG每一步会跳的特定级数的数量。<br>第二行包含<code>m</code>个十进制正整数<code>pi</code>，表示CjG每一步会跳的级数可能为<code>Pl</code>,<code>p2</code>,…,<code>Pm</code>中的一个。 接下来<code>T</code>行，每行一个<code>k</code>进制正整数<code>ni</code>,表示CjG每天训练时跳的台阶数。 </p>
+<p><strong>【输出格式】</strong></p>
+<p>输出文件包含<code>T</code>行，第<code>i</code>行输出一个十进制整数，表示CjG每天跳<code>ni</code>级台阶的不同方案数除以 64123的余数</p>
+<p><strong>【样例输入】</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">2 10 2</div><div class="line">2 4</div><div class="line">8</div><div class="line">9</div></pre></td></tr></table></figure></p>
+<p><strong>【样例输出】</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">5</div><div class="line">0</div></pre></td></tr></table></figure></p>
+<p><strong>【数据范围】</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">T &lt;= 200</div><div class="line">k &lt;= 10 </div><div class="line">m,pi &lt;= 20</div><div class="line">ni的位数&lt;= 1000</div></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>Some Ideas</strong></p>
+<p>递推式不难想</p>
+<script type="math/tex; mode=display">
+F[i] = \sum_{i >= step[j]}F[i-step[j]]</script><p>很遗憾只能拿到24分。范围看似很小，但考虑到进制的话就难以置信的了。</p>
+<hr>
+<p>凭着自己的理解简单加了一点注释。我理解的是，按照Code作者的写法，<strong>矩阵与实数无异</strong>。矩阵也可以按照实数来转换进制云云。而typedef之后，相当于每一次定义了一个<strong>矩阵类型</strong>的二维数组，&amp;pre[i][j]&amp;表示的是当第i位为K进制下的j时方案数。</p>
+<p>而矩阵转移式设计的更是巧妙，一部分与上一题类似；在处理步数枚举时把步数巧妙的安排在了初始矩阵中，在转移时良好的利用的这个设计。</p>
+<p>总之，以我现在的数学知识和能力仍无法完全理解。挖个坑。。至于为什么要贴出这道题，我希望在引起读者探究的同时，也希望将来的我能贴出这道题而感到可笑！<br><strong>Standard Code</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#include &lt;cstdio&gt;</div><div class="line">#include &lt;cstring&gt;</div><div class="line">const int mod = 64123;</div><div class="line">typedef unsigned Matrix[20][20];</div><div class="line">typedef unsigned Vector[20];</div><div class="line">int N, P = 1;</div><div class="line">Matrix pre[1010][10];</div><div class="line">void M(Matrix A, Matrix B, Matrix C)</div><div class="line">&#123;//矩乘运算</div><div class="line">	static unsigned *Ai, *Bk, *Ci, Aik;</div><div class="line">	static int i, j, k;</div><div class="line">	for(i = 0; i != N; ++i)</div><div class="line">		for(Ai = A[i], Ci = C[i], k = 0; k != N; ++k) if((Aik = Ai[k]))</div><div class="line">			for(Bk = B[k], j = 0; j != N; ++j) (Ci[j] += Aik * Bk[j]) %= mod;</div><div class="line">&#125;</div><div class="line">void M(Matrix A, Vector B)</div><div class="line">&#123;//矩阵与1*k的矩阵相乘得到ans</div><div class="line">	static Vector C; </div><div class="line">	static unsigned *Ai;</div><div class="line">	static int i, j;</div><div class="line">	memset(C, 0, N &lt;&lt; 2);</div><div class="line">	for(i = 0; i != N; ++i) for(Ai = A[i], j = 0; j != N; ++j)</div><div class="line">		(C[i] += Ai[j] * B[j]) %= mod;</div><div class="line">	memcpy(B, C, N &lt;&lt; 2);</div><div class="line">&#125;</div><div class="line">char Q[1010];</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	freopen(&quot;training.in&quot;, &quot;r&quot;, stdin);</div><div class="line">	freopen(&quot;training.out&quot;, &quot;w&quot;, stdout);</div><div class="line">	int T, k, m; scanf(&quot;%d%d%d&quot;, &amp;T, &amp;k, &amp;m);</div><div class="line">	for(int p; m--; )</div><div class="line">	&#123;</div><div class="line">		scanf(&quot;%d&quot;, &amp;p); //输入可以的步数。</div><div class="line">		if(N &lt; p) N = p; //寻找最大的步数。</div><div class="line">		pre[1][1][0][p - 1] = 1;</div><div class="line">	&#125;</div><div class="line">	for(int i = 1; i != N; ++i) pre[1][1][i][i - 1] = 1;//修改单位矩阵，向下平移一个单位。</div><div class="line">	for(int i = 2; i != k; ++i) M(pre[1][i - 1], pre[1][1], pre[1][i]);</div><div class="line">	//预处理出第一位k进制中1-k时的</div><div class="line">	static Vector V;</div><div class="line">	int L, i;</div><div class="line">	while(T--)</div><div class="line">	&#123;</div><div class="line">		scanf(&quot;%s&quot;, Q + 1); L = strlen(Q + 1);</div><div class="line">		while(P &lt; L)</div><div class="line">		&#123;//如果当前数的比已知的最大数大，那么继续预处理出所有可能用到的范围</div><div class="line">			++P; M(pre[P - 1][k - 1], pre[P - 1][1], pre[P][1]); // 根据进制得到的</div><div class="line">			for(i = 2; i != k; ++i) M(pre[P][i - 1], pre[P][1], pre[P][i]);//转成十进制矩阵。</div><div class="line">		&#125;</div><div class="line">		memset(V, 0, N &lt;&lt; 2); V[0] = 1;</div><div class="line">		for(i = 1; i &lt;= L; ++i) if(Q[i] != &apos;0&apos;) M(pre[L - i + 1][Q[i] - &apos;0&apos;], V);//查询数的每一位</div><div class="line">		printf(&quot;%u\n&quot;, V[0]);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">2017年10月28日 00点58分</div></pre></td></tr></table></figure></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-10-28</span><i class="fa fa-tag"></i><a href="/tags/OI-Method/" title="-OI -Method" class="tag">-OI -Method </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://lingzichao.github.io/2017/10/28/矩阵设计与运算/,LingAndrew,矩阵设计与运算,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2017/10/28/模板-最小环/" title="[模板]最小环" class="btn">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
