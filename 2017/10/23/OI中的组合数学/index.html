@@ -36,7 +36,8 @@
 <h5 id="（2-Catalan数"><a href="#（2-Catalan数" class="headerlink" title="（2).Catalan数"></a>（2).Catalan数</h5><p><strong>公式1</strong>:</p>
 <script type="math/tex; mode=display">F_N = \sum_{i=0}^{N-1}F_i*F_{n-i-1}</script><p><strong>公式2</strong>：</p>
 <script type="math/tex; mode=display">F_N=\frac{C_{2N}^{N}}{N+1}</script><p><strong>公式3</strong>(一阶递推式)：</p>
-<script type="math/tex; mode=display">F_N = \frac{4*N-2}{N+1}F_{N-1}</script><p>对于公式2，我们有一个有趣的证明方法————折线法。</p>
+<script type="math/tex; mode=display">F_N = F_{N-1}\frac{4*N-2}{N+1}</script><p><strong>Note</strong>:请注意对于公式3，在实际操作中务必保证先乘后除，即保证顺序如上式所示，否则会因为精度损失造成答案错误。</p>
+<p>对于公式2，我们有一个有趣的证明方法————折线法。</p>
 <blockquote>
 <p>链接：<a href="http://blog.sina.com.cn/s/blog_6917f47301010cno.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_6917f47301010cno.html</a></p>
 </blockquote>
